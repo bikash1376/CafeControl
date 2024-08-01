@@ -24,7 +24,7 @@ const colorArray = ['bg-red-500', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500'
 
   const fetchFoodItems = async () => {
     try {
-      const response = await fetch('${import.meta.env.VITE_BACKEND_URL}/api/food-items');
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/food-items`);
       if (!response.ok) throw new Error('Failed to fetch food items');
       const data = await response.json();
       setFoodItems(data.foodItems);
