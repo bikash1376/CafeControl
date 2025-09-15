@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fooocus Image Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; background: #fafafa; }
+    form { margin-bottom: 1rem; }
+    input, button { padding: 8px; }
+    #gallery { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+    .image-box { border: 1px solid #ccc; border-radius: 6px; padding: 5px; background: white; }
+    .image-box img { max-width: 200px; display: block; }
+  </style>
+</head>
+<body>
+  <h1>Fooocus Image Generator</h1>
+  <form id="genForm">
+    <input type="text" id="prompt" placeholder="Enter prompt" required>
+    <button type="submit">Generate 4 Images</button>
+  </form>
+  <div id="status"></div>
+  <div id="gallery"></div>
+
+  <script>
+    const form = document.getElementById("genForm");
+    const statusEl = document.getElementById("status");
+    const gallery = document.getElementById("gallery");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const prompt = document.getElementById("prompt").value;
+      statusEl.textContent = "⏳ Generating 4 images...";
+      gallery.innerHTML = ""; // clear old images
+
+      try {
+        // Create 4 requests in parallel
+        const requests = Array.from({ length: 4 }, () =>
+          fetch("https://cors-anywhere.herokuapp.com/https://fooocus.one/api/flux-generate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "*/*"
+            },
+            body: JSON.stringify({ prompt, steps: 4 })
+          }).then(res => res.json())
+        );
+
+        // Wait for all requests
+        const results = await Promise.all(requests);
+
+        results.forEach((data, i) => {
+          if (data.success && data.result?.image) {
+            const imgBox = document.createElement("div");
+            imgBox.className = "image-box";
+
+            const img = document.createElement("img");
+            img.src = "data:image/jpeg;base64," + data.result.image;
+
+            imgBox.appendChild(img);
+            gallery.appendChild(imgBox);
+          }
+        });
+
+        statusEl.textContent = "✅ Done! Generated " + results.length + " images.";
+      } catch (err) {
+        statusEl.textContent = "⚠️ Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
