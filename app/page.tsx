@@ -21,24 +21,47 @@ const monospace = Space_Mono({
 export default function Home() {
   return (
 <div className="h-screen w-full dark:bg-black bg-amber-50 flex flex-col gap-5 items-center justify-center">
-  <p className={`${monospace.className} text-3xl w-fit text-black dark:text-gray-200`}>
+  <p className={`${monospace.className} text-4xl mb-6 w-fit text-black dark:text-gray-200`}>
     Maze welcomes you!
   </p>
-  <Button className="text-xl border-gray-800 border-1">
+  <div className="flex gap-5">
+  <Button className="text-xl border-gray-800 border-1 hover:bg-lime-500 hover:text-black">
     <Link href="/editor" >
       Editor
     </Link>
   </Button>
-    <Button className="text-xl border-gray-800 border-1">
+    <Button className="text-xl border-gray-800 border-1 hover:bg-lime-500 hover:text-black">
     <Link href="/admin" >
       Admin
     </Link>
   </Button>
-    <Button className="text-xl border-gray-800 border-1">
+    <Button className="text-xl border-gray-800 border-1 hover:bg-lime-500 hover:text-black">
     <Link href="/store" >
       Store
     </Link>
   </Button>
+    <Button className="text-xl border-gray-800 border-1 hover:bg-lime-500 hover:text-black">
+    <Link href="/dashboard" >
+      Dashboard
+    </Link>
+  </Button>
+  <Button className="text-xl border-gray-800 border-1 hover:bg-lime-500 hover:text-black">
+    <Link href="https://v0-react-js-ui-jet.vercel.app/" >
+      Draw
+    </Link>
+  </Button>
+<Button className="text-xl border-gray-800 border-1  hover:bg-lime-500 hover:text-black">
+    <Link href="https://dropdawn.bksh.site/" >
+      Dropdawn
+    </Link>
+  </Button>
+<Button className="text-xl border-gray-800 border-1 hover:bg-lime-500 hover:text-black">
+    <Link href="https://yet-another-to-do.vercel.app/" >
+      To-do
+    </Link>
+  </Button>
+  </div>
+
 </div>
 
   );
