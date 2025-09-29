@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+HELP : [text](https://medium.com/@dmitrysikorsky/how-to-print-from-a-web-page-to-a-pos-printer-8d5b39fc975b)
 
-## Getting Started
 
-First, run the development server:
+[text](https://www.matteomattei.com/how-to-directly-print-from-web-browser/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# CafeControl
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+CafeControl is a comprehensive web application designed to streamline cafe operations with separate dashboards for admin and cashier roles. Built with React, Node.js, Express, and MongoDB, it offers a robust solution for menu management and order processing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![CafeControl Dashboard](https://path-to-your-image/dashboard-screenshot.png)
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+### Admin Dashboard
+- Create, read, update, and delete food items
+- Manage menu categories
+- View sales reports and analytics
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Admin Dashboard](/frontend/src/assets/cafecontroladmin.jpg)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Cashier Dashboard
+- Access to food items created by admin
+- Generate customer bills
+- Print receipts
 
-## Deploy on Vercel
+![Cashier Dashboard](/frontend/src/assets/cafecontrolcashier.jpg)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Bill Generation
+- Generate bills based on customer orders
+- Calculate total bill amount
+- Print receipts
+
+![Bil Generation](/frontend/src/assets/billgeneration.jpg)
+
+
+## Technology Stack
+
+- Frontend : Next JS
+- Backend : Next JS Api Routes
+- Database: MongoDB
+- Styling: Tailwind CSS
+
+
+
