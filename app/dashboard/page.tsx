@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import GeneratedComponent from "../components/PaperComp";
+import Link from "next/link";
 
 const monospace = Space_Mono({
     weight: ["400", "700"],
@@ -68,7 +69,7 @@ const Page = () => {
                 {/* Input + Button */}
                 <div className="flex gap-2">
                     <Input placeholder="Enter your email" className="outline-none" />
-                    <Button>Join the waitlist</Button>
+                    <Link href='https://www.youtube.com/watch?v=xvFZjo5PgG0'><Button >Join the waitlist</Button></Link>
                 </div>
             </motion.div>
         </div>
